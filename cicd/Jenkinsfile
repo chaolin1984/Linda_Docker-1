@@ -12,7 +12,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 sh '''
-                   cd Cat && docker build -t willido /cat:JR10 .
+                   cd Cat && docker build -t willido/cat:JR10 .
                    cd ../helloworld && docker build -t willido/helloworld:JR10 .
                    cd ../web-nginx && docker build -t willido/mynginx:JR10 .
                    docker images
