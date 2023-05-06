@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                sh 'pwd'
+            }
+        }
+
+        stage('Build Image') {
+            steps {
+                sh '''
+                   cd Cat && docker build -t willido /cat:JR10 .
+                   cd ../helloworld && docker build -t willido/helloworld:JR10 .
+                   cd ../web-nginx && docker build -t willido/mynginx:JR10 .
+                   docker images
+		        '''
+            }
+        }
+
+        stage('Push Image') {
+            steps {
+                
+            }
+        }
+
+        stage('Deploy Service') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+
+    }
+}
