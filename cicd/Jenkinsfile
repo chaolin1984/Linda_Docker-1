@@ -30,7 +30,7 @@ pipeline {
                         docker login -u $USER -p $PSWD
                         for img in willido/cat:JR10 willido/cat:latest willido/helloworld:JR10 willido/helloworld:latest \
                                willido/mynginx:JR10 willido/mynginx:latest; \
-                        do docker push $$img; done;
+                        do docker push \$img; done;
                     """
                 }
 
