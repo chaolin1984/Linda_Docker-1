@@ -22,7 +22,9 @@ pipeline {
 
         stage('Push Image') {
             steps {
-                
+                sh '''
+                    pwd
+                '''
             }
         }
 
