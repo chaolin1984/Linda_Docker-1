@@ -33,7 +33,8 @@ jobs:
       with:
         host: 20.213.125.197
         username: azureuser
-        key: ${{ secrets.SSH_PRIVATE_KEY }}        
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22        
         script: |
           echo "Running command on remote server"
           pwd 
