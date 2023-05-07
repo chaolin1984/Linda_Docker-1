@@ -3,10 +3,10 @@ services:
   helloworld:
     image: willido/helloworld
   mynginx:
-    image: willido/mynginx:10
+    image: willido/mynginx:JR10
     ports:
     - "5001:80"
   mycat:
-    image: willido/cat:10
+    image: willido/cat:JR10
     ports:
     - "5000:5000"
