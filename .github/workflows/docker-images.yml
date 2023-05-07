@@ -26,4 +26,4 @@ jobs:
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
         docker push willido/cat:action10
         docker push willido/helloworld:action10
-        docker push willido/mynginx:action1
+        docker push willido/mynginx:action10
