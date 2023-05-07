@@ -1,0 +1,29 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "feature/cicd" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Build the Docker image
+      run: |
+        docker build . --file Cat/Dockerfile --tag willido/cat:action10
+        docker build . --file helloworld/Dockerfile --tag willido/helloworld:action10
+        docker build . --file web-nginx/Dockerfile --tag willido/mynginx:action10
+        
+    - name: Upload the Docker image
+      run: |
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        docker push willido/cat:action10
+        docker push willido/helloworld:action10
+        docker push willido/mynginx:action1
