@@ -37,8 +37,11 @@ jobs:
         port: 2020        
         script: |
           echo "Running command on remote server"
-          pwd 
-          ls -la
+          cd ~/WK2_Docker
+          git pull
+          sudo docker-compose down
+          sudo docker-compose up -d
+          sudo docker-compose ps
       # uses: fifsky/ssh-action@master
       # with:
       #   command: |
