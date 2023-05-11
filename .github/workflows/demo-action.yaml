@@ -11,5 +11,6 @@ jobs:
           repository=$GITHUB_REPOSITORY
           owner=${repository%/*}
           repo=${repository#*/}
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
           echo "Owner: $owner"
           echo "Repository: $repo"
