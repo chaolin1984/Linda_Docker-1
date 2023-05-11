@@ -14,3 +14,4 @@ jobs:
           echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
           echo "Owner: $owner"
           echo "Repository: $repo"
+          echo "lower-repo: ${repo,,}"
