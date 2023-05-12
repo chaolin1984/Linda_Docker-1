@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     stages {
-    //     stage('Hello') {
-    //         steps {
-    //             echo 'Hello World'
-    //             sh 'pwd'
-    //         }
-    //     }
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                sh 'pwd'
+            }
+        }
 
     //     stage('Build Image') {
     //         steps {
@@ -37,15 +37,15 @@ pipeline {
     //         }
     //     }
 
-        stage('Deploy Service') {
-            steps {
-                sh '''
-                    docker-compose down
-                    docker-compose up -d
-                    docker-compose ps
-                '''
-            }
-        }
+        // stage('Deploy Service') {
+        //     steps {
+        //         sh '''
+        //             docker-compose down
+        //             docker-compose up -d
+        //             docker-compose ps
+        //         '''
+        //     }
+        // }
 
     }
 }
