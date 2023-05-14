@@ -13,7 +13,8 @@ jobs:
       id: validate-title
       run: |
         TITLE=$(jq .pull_request.title ${GITHUB_EVENT_PATH})
-        if ! [[ $TITLE =~ ^jiangren-([0-9]{4}) ]]; then
+        echo $TITLE
+        if ! [[ $TITLE =~ ^jiangren-[0-9]{4}\w* ]]; then
           echo "ERROR: PR title must start with 'jiangren-' and digits, e.g. jiangren-1234"
           exit 1
         fi
