@@ -1,0 +1,29 @@
+name: Docker Image CI
+
+on:
+#  workflow_dispatch
+  push:
+    branches: [ "feature/regex" ]
+
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Build the Docker image
+      run: |
+        cd Cat && docker build . -t willido/cat:action10
+        cd ../helloworld && docker build . -t willido/helloworld:action10
+        cd ../web-nginx && docker build . -t willido/mynginx:action10
+        
+    - name: Upload the Docker image
+      run: |
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        docker push willido/cat:action10
+        docker push willido/helloworld:action10
+        docker push willido/mynginx:action10
